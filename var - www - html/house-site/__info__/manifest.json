@@ -1,0 +1,22 @@
+{
+    "title": "<span style=\"letter-spacing: 0.1em; font: 1em bold;\">Продажа недвижимости</span><small style=\"display: block; position: absolute; bottom: -4em; left: 50%; transform: translateX(-50%); color: #8cabd4; font: 0.6em monospace; white-space: pre;\">Вёрстка / Бэк</small>",
+    "creation_date": "11.02.2020",
+    "adaptive": ["pc", "modile"],
+
+    "priority": 7,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background": "url('$path/icon.png') no-repeat center/cover"
+    	},
+    	"content": {
+            "background": "linear-gradient(to top, #3a6398, #5b92cb)",
+            "color": "white",
+            "font": "1.1em sans-serif"
+    	},
+        "meta": "dark"
+    }
+}

@@ -1,0 +1,35 @@
+section {
+    transition-property: transform;
+    transition-duration: 0.5s;
+}
+.section_pop {
+    transform: translateY(-2.5em) scale(0.95, 0.95);
+}
+.section_hover {
+    transform: translateY(-2.5em) scale(0.975, 0.975);
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.particle-frame {
+    width: 10em;
+	height: 10em;
+}
+.particle {
+    transform: rotate(45deg);
+    border-radius: 0.3em;
+    background: #fff;
+    width: 10em;
+	height: 10em;
+}
+
+@media screen and (max-width: 800px) {
+    .section_pop {
+        transform: translateX(-2em) scale(0.9, 0.95);
+    }
+    .section_hover {
+        transform: translateX(-2.5em) scale(0.975, 0.975);
+    }
+    section {
+        transform-origin: center;
+    }
+}

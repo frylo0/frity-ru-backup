@@ -1,0 +1,19 @@
+{
+    "title": "Заметки проектов",
+    "creation_date": "upd",
+    "adaptive": ["pc"],
+
+    "priority": 0,
+
+    "is_supported": true,
+    "is_hidden": true,
+
+    "style": {
+    	"preview": {
+    
+    	},
+    	"content": {
+    
+    	}
+    }
+}

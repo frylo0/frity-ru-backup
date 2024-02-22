@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Игра — жизнь, а жизнь — игра</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        .root {
+            background: #EEE;
+            line-height: 0;
+            display: inline-block;
+        }
+
+        .tile {
+            display: inline-block;
+            background-image: radial-gradient(#77E 0, #EEE 30%);
+            box-shadow: 0 0 5px 3px rgb(243, 243, 250) inset;
+            opacity: 0;
+        }
+
+        .place:hover {
+            border: 1px solid #7777EE77;
+        }
+
+        .line {
+            line-height: 0;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .alive {
+            opacity: 0.75;
+        }
+
+        .place {
+            display: inline-block;
+            border: 1px solid white;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #game {
+            border: 1px solid silver;
+        }
+
+        label {
+            margin-right: 0.25em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolbox">
+        <input type="range" min="10" max="500" name="speed" id="speed" style="width: 100%" value="400"><br>
+        <label for="size">Размер поля:</label><input type="number" name="size" id="size" value="20">
+        <label for="width">Размер клеток:</label><input type="number" name="width" id="width" value="30">
+        <button id="submit">Применить</button>
+        <button id="play-button">Пауза</button><br>
+        <label for="regions">Режим регионов</label><input type="checkbox" name="regions" id="regions">
+    </div><br>
+    <main>
+        <div id="game">
+        </div>
+    </main>
+
+    <!--PAGE -->
+    <script>
+        let pauseButton = {
+            obj: document.querySelector('#play-button'),
+
+            currentTask: null,
+            isPause: true,
+
+            init() {
+                this.obj.addEventListener('click', this.handler);
+            },
+
+            handler() {
+                pauseButton.toggle();
+                pauseButton.currentTask();
+            },
+
+
+            makePlay() {
+                this.isPause = false;
+                this.obj.textContent = 'Пуск';
+                this.currentTask = game.stop;
+            },
+
+            makePause() {
+                this.isPause = true;
+                this.obj.textContent = 'Пауза';
+                this.currentTask = game.resume;
+            },
+
+            toggle() {
+                if (this.isPause) {
+                    this.makePlay();
+                } else {
+                    this.makePause();
+                }
+            }
+        };
+        pauseButton.init();
+
+        let regionsMode = {
+            obj: document.querySelector('#regions'),
+
+
+            init() {
+                this.obj.addEventListener('change', this.listener);
+            },
+
+            listener() {
+                game.regions.toggle();
+            }
+        };
+        regionsMode.init();
+
+        let range = document.querySelector('#speed');
+        range.addEventListener('change', e => game.changeSpeed(range.getAttribute('max') - e.target.value));
+
+        document.querySelector('#submit').addEventListener('click', e => {
+            let form = e.target.parentElement;
+            let size = form.querySelector('#size').value;
+            let width = form.querySelector('#width').value;
+            game.size = size;
+            game.width = width;
+            game.refresh();
+        });
+    </script>
+
+    <!-- GAME -->
+    <script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        const size = +urlParams.get('size');
+
+        const game = {
+            field: document.getElementById('game'),
+            size: size || 20,
+            timeout: null,
+            width: +urlParams.get('width') || 20,
+            boolfield: [],
+            speed: 100,
+            popularityBegin: 0,
+            regions: {
+                mode: false,
+                color: '#ddddff',
+                popularity: {
+                    min: 0,
+                    max: 20,
+                    factor: 10,
+                },
+                was: false,
+                wasCounter: 0,
+                on() {
+                    return this.mode = true;
+                },
+                off() {
+                    this.was = true;
+                    this.wasCounter = 0; //to disable all regions view
+                    return this.mode = false;
+                },
+                toggle() {
+                    return this.mode ? this.off() : this.on();
+                }
+            },
+
+
+            start(intervalSize) {
+                game.spawn();
+                game.resume(intervalSize);
+            },
+
+
+            stop() {
+                pauseButton.makePlay();
+                game.isResume = false;
+                clearInterval(game.timeout);
+                game.timeout = null;
+            },
+
+            resume(intervalSize) {
+                pauseButton.makePause();
+                game.speed = intervalSize;
+                game.isResume = true;
+                game.loop();
+            },
+
+
+            changeSpeed(intervalSize) {
+                game.stop(); game.resume(intervalSize);
+            },
+
+
+            clear() {
+                game.field.innerHTML = '';
+            },
+
+            refresh() {
+                game.stop();
+                game.clear();
+                game.start();
+            },
+
+
+            loop() {
+                if (game.isResume)
+                    game.timeout = setTimeout(() => { game.render(); game.loop(); }, game.speed);
+            },
+
+
+            spawn() {
+                game.clear();
+                for (let i = 0; i < game.size; i++) {
+                    const line = game.createLine();
+                    for (let j = 0; j < game.size; j++) {
+                        const cell = line.createCell(Math.random() > 0.85);
+                        const region = cell.nextElementSibling;
+                        region.setAttribute('data-field-i', i);
+                        region.setAttribute('data-field-j', j);
+                        region.addEventListener('mouseenter', e => {
+                            const _cell = game.getCell(+e.target.dataset.fieldI, +e.target.dataset.fieldJ);
+                            _cell.alive(true);
+                        });
+                    }
+                }
+            },
+
+            render() {
+                game.logic();
+                for (let i = 0; i < game.size; i++) {
+                    for (let j = 0; j < game.size; j++) {
+                        let cell = game.getCell(i, j)
+                        cell.alive(game.boolfield[i][j]);
+                    }
+                }
+            },
+
+            logic() {
+                function countCellsAround(i, j) {
+                    let res = 0;
+                    for (let ri = 0; ri < 3; ri++) { //round
+                        for (let rj = 0; rj < 3; rj++) { //round
+                            if (ri == 1 && rj == 1) continue;
+                            let di = ri - 1, dj = rj - 1; //delta
+                            let ti = i + di, tj = j + dj; //target
+                            if (ti >= 0 && ti < game.size && tj >= 0 && tj < game.size) {
+                                res += +game.boolfield[ti][tj];
+                            }
+                        }
+                    }
+                    return res;
+                }
+                for (let i = 0; i < game.size; i++) {
+                    for (let j = 0; j < game.size; j++) {
+                        let cellAroundNumber = countCellsAround(i, j);
+                        if (game.boolfield[i][j]) {
+                            if (cellAroundNumber == 2 || cellAroundNumber == 3) {
+                                continue;
+                            } else game.boolfield[i][j] = false;
+                        } else if (cellAroundNumber == 3) {
+                            game.boolfield[i][j] = true;
+                        }
+                    }
+                }
+            },
+
+            getCell(line, number) {
+                const cell = game.field.querySelector(`.line:nth-of-type(${line + 1}) .place:nth-of-type(${number + 1})`).firstElementChild;
+                if (!cell) console.log(cell, line, number);
+                return {
+                    obj: cell,
+                    line: line,
+                    number: number,
+                    alive(state) {
+                        this.obj.classList[state ? 'add' : 'remove']('alive');
+                        game.boolfield[this.line][this.number] = state;
+                        if (game.regions.mode) {
+                            const region = this.obj.nextElementSibling;
+                            region.setAttribute('data-popularity', +region.dataset.popularity + (state ? 1 : -1));
+                            region.dataset.popularity > game.regions.popularity.max
+                                ? region.dataset.popularity = game.regions.popularity.max
+                                : null;
+                            region.dataset.popularity < game.regions.popularity.min
+                                ? region.dataset.popularity = game.regions.popularity.min
+                                : null;
+                            region.style.backgroundColor = game.regions.color + (region.dataset.popularity * game.regions.popularity.factor).toString(16);
+                        } else if (game.regions.was) {
+                            game.regions.wasCounter++;
+                            const region = this.obj.nextElementSibling;
+                            region.setAttribute('data-popularity', game.regions.popularity.min);
+                            region.style.backgroundColor = 'transparent';
+                            if (game.regions.wasCounter == game.size ** 2) {
+                                game.regions.was = false; return;
+                            }
+                        }
+                    }
+                };
+            },
+
+            createLine() {
+                const line = document.createElement('span');
+                game.field.appendChild(line);
+                line.className = 'line';
+                line.style = `height: ${this.width}px`;
+
+                this.boolfield.push([]);
+
+                line.createCell = (alive = true) => {
+                    const div = document.createElement('span');
+                    div.className = 'tile';
+                    if (alive) {
+                        div.classList.add('alive');
+                    }
+                    div.style = `width: ${this.width}px; height: ${this.width}px;`;
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('place');
+                    wrapper.style.position = 'relative';
+                    const region = document.createElement('span');
+                    wrapper.append(div);
+                    wrapper.append(region);
+                    line.appendChild(wrapper);
+                    region.style = `width: ${this.width}px; height: ${this.width}px; position: absolute; left: 0; top: 0; background-color: transparent`;
+                    region.setAttribute('data-popularity', game.regions.popularity.min);
+
+                    const last = this.boolfield.pop();
+                    last.push(alive);
+                    this.boolfield.push(last);
+
+                    return div;
+                }
+
+                return line;
+            },
+        }
+        game.start(+urlParams.get('speed'));
+
+    </script>
+
+</body>
+
+</html>

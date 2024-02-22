@@ -1,0 +1,55 @@
+upstream shpargalki {
+    server 0.0.0.0:1123;
+}
+
+server {
+    server_name frity.online;
+
+    root /usr/share/nginx/html;
+    index index.php index.html index.htm index.nginx-debian.html;
+    access_log /var/log/nginx/frityonline-access.log;
+    error_log /var/log/nginx/frityonline-error.log;
+
+    location / {
+            try_files $uri $uri/ /index.php;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass   unix:run/php/php-fpm.sock;
+        #fastcgi_pass    127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param DOCUMENT_ROOT /usr/share/nginx/html;
+        fastcgi_param SCRIPT_FILENAME /usr/share/nginx/html$fastcgi_script_name;
+        fastcgi_param PATH_TRANSLATED /usr/share/nginx/html$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_param QUERY_STRING $query_string;
+        fastcgi_param REQUEST_METHOD $request_method;
+        fastcgi_param CONTENT_TYPE $content_type;
+        fastcgi_param CONTENT_LENGTH $content_length;
+        fastcgi_intercept_errors on;
+        fastcgi_ignore_client_abort off;
+        fastcgi_connect_timeout 60;
+        fastcgi_send_timeout 180;
+        fastcgi_read_timeout 180;
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 4 256k;
+        fastcgi_busy_buffers_size 256k;
+        fastcgi_temp_file_write_size 256k;
+    }
+
+    location /shpargalki {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_pass http://shpargalki;
+    }
+
+    location /hakaton-22 {
+        include uwsgi_params;
+        uwsgi_pass unix:/usr/share/nginx/html/hakaton-22/main.sock;
+    }
+
+    include snippets/phpMyAdmin.conf;
+
+    listen 80;
+}

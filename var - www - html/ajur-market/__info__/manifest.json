@@ -1,0 +1,22 @@
+{
+    "title": "<pre style=\"font: bold 1em monospace;\">Ажур-маркет</pre>",
+    "creation_date": "07.01.2021",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 10,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background": "url('$path/icon.png') no-repeat center/contain"
+    	},
+    	"content": {
+            "color": "black",
+            "background": "linear-gradient(to bottom, transparent, yellow)"
+    
+    	},
+        "meta": "dark"
+    }
+}

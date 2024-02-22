@@ -1,0 +1,21 @@
+{
+    "title": "Игра \"Жизнь\"",
+    "creation_date": "19.12.2019",
+    "adaptive": ["pc"],
+
+    "priority": 0,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background-image": "url('$path/icon.png')"
+    	},
+    	"content": {
+            "background": "linear-gradient(transparent, #77E)",
+            "color": "black"
+    	},
+        "meta": "dark"
+    }
+}

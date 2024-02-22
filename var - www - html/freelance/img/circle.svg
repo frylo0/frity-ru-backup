@@ -1,0 +1,44 @@
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300"
+   height="300"
+   viewBox="0 0 26.458333 26.458334">
+  <defs
+     id="defs2145">
+    <linearGradient
+       id="linearGradient2702">
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="0"
+         id="stop2698" />
+      <stop
+         style="stop-color:#8a8a8a;stop-opacity:0.92929292"
+         offset="1"
+         id="stop2700" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient2702"
+       id="linearGradient2704"
+       x1="18.625542"
+       y1="293.50116"
+       x2="9.1454897"
+       y2="272.66138"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.15625,0,0,1.15625,-1.786528,-43.919875)" />
+  </defs>
+  <g
+     transform="translate(0,-270.54166)">
+    <circle
+       style="opacity:0.5;fill:none;fill-opacity:0.50196078;stroke:url(#linearGradient2704);stroke-width:3;stroke-opacity:1"
+       cx="13.181918"
+       cy="283.53461"
+       r="11.472168" />
+  </g>
+</svg>

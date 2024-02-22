@@ -1,0 +1,23 @@
+{
+    "title": "<span style='color: black; font-size: 1.25em;'> Генератор</span> списка источников",
+    "creation_date": "25.06.2020",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 9,
+
+    "is_supported": true,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background": "linear-gradient(#eee, #ddd)"
+    	},
+    	"content": {
+            "opacity": "1",
+            "color": "purple",
+            "font-style": "italic",
+            "font-family": "serif"
+    	},
+        "meta": "dark"
+    }
+}

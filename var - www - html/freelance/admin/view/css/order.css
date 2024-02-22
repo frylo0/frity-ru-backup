@@ -1,0 +1,23 @@
+.order {
+    display: flex;
+    border: 1px solid lightgray;
+    width: fit-content;
+    box-sizing: border-box;
+    padding: 0.25em;
+    margin-top: 0.1em;
+}
+.order > div{
+    margin-right: 1em;
+}
+.order > div:last-child {
+    margin-right: 0;
+}
+.order .name {
+    font-weight: bold;
+}
+.order .contact {
+    text-decoration: underline;
+}
+.order .datetime {
+
+}

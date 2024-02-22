@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dictor</title>
+   <style>
+      body {
+         display: flex;
+         flex-direction: column;
+      }
+
+      textarea {
+         margin-bottom: 0.25em;
+         height: 90vh;
+      }
+   </style>
+</head>
+
+<body>
+   <textarea id="data" placeholder="# 15 Upcoming Web Design Trends & Website Inspiration for 2021
+1. Dark
+2. Modern Minimalism
+3. Storytelling
+4. Rotating Animations
+5. Diagonal Lines
+6. Scrolling Animations
+7. Gradients
+8. Embedded Video
+9. Scroll-Triggered Animations
+10. Creative Color Branding
+11. Depth and Dimension
+12. Large Titles
+13. Abstract Shapes
+14. Dynamic Landing Pages
+15. Detailed Footers
+
+# Ways Web Animation Can Improve the User Experience
+0. Why is web animation important?
+1. Interactive Keep People Interested
+2. Guide Users to Complete Tasks
+3. Message Delivering
+4. Hover Animation More">
+# 15 Upcoming Web Design Trends & Website Inspiration for 2021
+1. Dark
+2. Modern Minimalism
+3. Storytelling
+4. Rotating Animations
+5. Diagonal Lines
+6. Scrolling Animations
+7. Gradients
+8. Embedded Video
+9. Scroll-Triggered Animations
+10. Creative Color Branding
+11. Depth and Dimension
+12. Large Titles
+13. Abstract Shapes
+14. Dynamic Landing Pages
+15. Detailed Footers
+
+# Ways Web Animation Can Improve the User Experience
+0. Why is web animation important?
+1. Interactive Keep People Interested
+2. Guide Users to Complete Tasks
+3. Message Delivering
+4. Hover Animation More
+   </textarea>
+   <button id="start">Start</button>
+
+   <script>
+      start.addEventListener('click', e => {
+         window.location = `./textshow.html?texts=${encodeURIComponent(JSON.stringify(data.value.split('\n').filter(el => el)))}`;
+      });
+   </script>
+</body>
+
+</html>

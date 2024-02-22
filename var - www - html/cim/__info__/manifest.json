@@ -1,0 +1,21 @@
+{
+    "title": "<b>Интерактивная карта Крыма</b><div style=\"height: 0.5em\"></div> (Симф, Ялта)",
+    "creation_date": "18.11.2019",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 5,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background": "url($path/icon.png) no-repeat center/cover"
+    	},
+    	"content": {
+            "background": "linear-gradient(#b2845add, #b58b77dd)",
+            "color": "white"
+    	},
+        "meta": "dark"
+    }
+}

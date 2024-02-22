@@ -1,0 +1,21 @@
+@media screen and (max-width: 1000px) {
+    .feodoritiy-model {
+        margin-left: -6.25em;
+    }
+
+    .feodoritiy-description {
+        padding-right: 0.5em;
+    }
+
+    .feodoritiy-description .title {
+        font-size: 2.8em;
+    }
+
+    .order .content .right {
+        font-size: 0.8em;
+    }
+
+    .examples .products-grid {
+        grid: 1fr 1fr 1fr / repeat(4, 1fr);
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "__main-page__",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "sass:build": "npx sass --no-source-map ./css/index.sass:./css/index.css",
+    "sass:watch": "npx sass --no-source-map --watch ./css/index.sass:./css/index.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^7.0.3"
+  }
+}

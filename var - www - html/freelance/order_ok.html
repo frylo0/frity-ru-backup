@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thank you!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 1em;
+            background: #000;
+            color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 768px) {
+            .wrapper {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <span><strong>Запрос отправлен на сервер.</strong></span><br />
+        <span><small><em>Мы свяжемся с Вами по контактной информации, которая была указана в
+                    форме.</em></small></span><br />
+        <a href="./">Вернуться на главную</a>
+    </div>
+</body>
+
+</html>

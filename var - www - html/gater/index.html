@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gater</title>
+   <style>
+      body {
+         width: 99vw;
+         height: 90vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+      }
+
+      button {
+         background: skyblue;
+         color: white;
+         border-radius: 10px;
+         margin: auto;
+         width: 20em;
+         font-size: 1.25em;
+         padding: 0.5em;
+         border: none;
+      }
+
+      button:hover {
+         background: #59c1eb;
+      }
+
+      button:active {
+         background: blue;
+      }
+      
+      @keyframes load {
+         0% {
+            transform: translateX(0);
+         }
+         25% {
+            transform: translateX(-10%);
+         }
+         50% {
+            transform: translateX(0);
+         }
+         75% {
+            transform: translateX(10%);
+         }
+         100% {
+            transform: translateX(0);
+         }
+      }
+
+      .animation-load {
+         animation: load ease 2s infinite;
+      }
+   </style>
+</head>
+
+<body>
+
+   <div class="row">
+      <select id="selectType">
+         <option value="departure">Вылет</option>
+         <option value="arrival">Прилет</option>
+      </select>
+      <select id="selectTime">
+         <option value="yesterday">Вчера</option>
+         <option value="today">Сегодня</option>
+         <option value="tomorrow">Завтра</option>
+      </select>
+   </div>
+   <button id="button">Скопировать гейты</button>
+   <div id="log" style="font-family: monospace"></div>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="./clipboard.js"></script>
+   <script src="./index.js"></script>
+
+</body>
+
+</html>

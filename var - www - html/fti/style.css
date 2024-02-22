@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--bg);
+}
+
+:root {
+  --bg: #eee;
+}
+
+a {
+  text-decoration-color: lightgray;
+  color: black;
+  display: inline-block;
+  transition: 0.25s;
+  background: var(--bg);
+}
+
+a:visited {
+  color: purple;
+  background: linear-gradient(red, blue);
+}
+a:hover {
+  text-decoration-color: blue;
+  color: blue;
+}
+
+ol {
+  list-style: none;
+}
+
+li {
+  counter-increment: li;
+  white-space: pre;
+}
+
+li::before {
+  content: '.' counter(li);
+  color: blue;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em;
+  margin-right: 0.5em;
+  text-align: right;
+  direction: rtl;
+  font-weight: 200;
+}
+
+li.subgroup::before,
+li.me::before {
+  color: black;
+}
+
+li.subgroup > span > span:not(.girl),
+.t-blue {
+  color: blue;
+}
+
+li.me > span > span:not(.girl),
+.t-purple {
+  color: purple;
+}
+
+li.usual::before {
+  color: purple;
+}

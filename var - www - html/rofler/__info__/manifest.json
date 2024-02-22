@@ -1,0 +1,20 @@
+{
+    "title": "Rofler",
+    "creation_date": "16.04.2020",
+    "adaptive": ["pc"],
+
+    "priority": 7,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background-image": "url('$path/icon.png')"
+    	},
+    	"content": {
+            "background": "linear-gradient(to bottom, #ffbebece, #aa41ffce), linear-gradient(to right, #ffbcbcce, #6de6fcce)"
+    	},
+        "meta": "dark"
+    }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Emacs 5x5 Online</title>
+
+   <style>
+      main {
+         display: flex;
+         flex-direction: column;
+         width: fit-content;
+         width: -moz-fit-content;
+         margin: auto;
+      }
+
+      .row {
+         display: flex;
+      }
+
+      .cell {
+         width: 3em;
+         height: 3em;
+         background: #eee;
+         margin: 0.5em;
+         cursor: pointer;
+         border-radius: 50%;
+      }
+
+      .cell.selected {
+         background: #444;
+         border-radius: 0.5em;
+      }
+
+      footer {
+         font-size: 1.25em;
+         font-family: monospace;
+         text-align: center;
+         margin-top: 1em;
+      }
+
+      footer div {
+         margin-top: 0.5em;
+      }
+   </style>
+</head>
+
+<body>
+   <main>
+      <div class="row">
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+      </div>
+      <div class="row">
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+      </div>
+      <div class="row">
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+      </div>
+      <div class="row">
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+      </div>
+      <div class="row">
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+         <div class="cell"></div>
+      </div>
+   </main>
+
+   <footer>
+      <div>Steps: <span id="steps">0</span></div>
+      <div><button onclick="refresh()">Restart</button></div>
+   </footer>
+
+   <script>
+      const SIZE = 5;
+
+      const spanSteps = document.getElementById('steps');
+      const cellEls = document.querySelectorAll('.cell');
+      const cells = [];
+      for (let i = 0; i < SIZE; i++) cells.push([]);
+
+      let i = 0;
+      for (let cellEl of cellEls) {
+         let x = Math.trunc(i / SIZE), y = i % SIZE;
+
+         cellEl.dataset.x = x;
+         cellEl.dataset.y = y;
+
+         cells[x][y] = cellEl;
+
+         cellEl.addEventListener('click', e => {
+            reverseCross(+e.target.dataset.x, +e.target.dataset.y);
+            spanSteps.textContent = +spanSteps.textContent + 1;
+            setTimeout(() => {
+               if (checkWin()) {
+                  alert('You WON!!!');
+                  refresh();
+               }
+            }, 250);
+         });
+      i++;
+      }
+
+      function reverseCross(x, y) {
+         // top
+         if (y > 0) {
+            cells[x][y - 1].classList.toggle('selected');
+         }
+         // bottom 
+         if (y < SIZE - 1) {
+            cells[x][y + 1].classList.toggle('selected');
+         }
+
+         // left
+         if (x > 0) {
+            cells[x - 1][y].classList.toggle('selected');
+         }
+         // right
+         if (x < SIZE - 1) {
+            cells[x + 1][y].classList.toggle('selected');
+         }
+
+         cells[x][y].classList.toggle('selected');
+      }
+
+      function checkWin() {
+         return cells.every(row => row.every(cell => cell.classList.contains('selected')));
+      }
+
+      function refresh() {
+         spanSteps.textContent = 0;
+         cells.forEach(row => row.forEach(cell => cell.classList.remove('selected')));
+         cells[2][1].classList.add('selected');
+         cells[1][2].classList.add('selected');
+         cells[2][2].classList.add('selected');
+         cells[3][2].classList.add('selected');
+         cells[2][3].classList.add('selected');
+      }
+
+      refresh();
+   </script>
+</body>
+
+</html>

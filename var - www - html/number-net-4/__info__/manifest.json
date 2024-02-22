@@ -1,0 +1,21 @@
+{
+    "title": "NumberNet4",
+    "creation_date": "27.01.2020",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 4,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background-image": "url('$path/icon.png')"
+    	},
+    	"content": {
+            "background": "linear-gradient(transparent, #e9c6af)",
+            "color": "black"
+    	},
+        "meta": "dark"
+    }
+}

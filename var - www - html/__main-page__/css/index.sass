@@ -1,0 +1,28 @@
+$-c-black: #222
+$-c-gray: #555
+
+$-f-code: monospace
+$-f-serif: serif
+$-f-serif: serif
+
+*
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+body
+  background: $-c-black
+  font-family: $-f-code
+  font-size: 14px
+
+main
+  display: flex
+  margin: auto
+  flex-wrap: wrap
+  gap: 1em
+  justify-content: center
+  max-width: 1200px
+  padding-bottom: 7em
+
+@import './card/card'
+@import './header/header'

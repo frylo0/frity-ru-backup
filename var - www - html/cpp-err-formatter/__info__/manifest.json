@@ -1,0 +1,22 @@
+{
+    "title": "<strong style=\"font-size: 2em;margin-bottom: 0.3em;display: block;\">C++</strong>\nError<br>Formatter",
+    "creation_date": "27.04.2021",
+    "adaptive": ["pc"],
+
+    "priority": 5,
+
+    "is_supported": true,
+    "is_hidden": false,
+
+    "style": {
+        "preview": {
+            "background": "linear-gradient(#eee, #0d6efd)"
+        },
+        "content": {
+            "background": "linear-gradient(#eee, #0d6efd)",
+            "color": "black",
+            "opacity": "1"
+        },
+        "meta": "dark"
+    }
+}

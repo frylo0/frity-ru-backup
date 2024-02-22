@@ -1,0 +1,43 @@
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300"
+   height="300"
+   viewBox="0 0 26.458333 26.458334">
+  <defs>
+    <linearGradient
+       id="linearGradient824">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.50196081"
+         offset="0"
+         id="stop820" />
+      <stop
+         style="stop-color:#808080;stop-opacity:0.50196081"
+         offset="1"
+         id="stop822" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient824"
+       id="linearGradient826"
+       x1="17.651487"
+       y1="296.00781"
+       x2="8.2398796"
+       y2="271.62836"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     transform="translate(0,-270.54165)">
+    <rect
+       style="fill:none;fill-opacity:1;stroke:url(#linearGradient826);stroke-width:3;"
+       width="23.151041"
+       height="23.151041"
+       x="1.5119048"
+       y="272.24255" />
+  </g>
+</svg>

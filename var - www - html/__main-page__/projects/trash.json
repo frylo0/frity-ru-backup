@@ -1,0 +1,45 @@
+[
+  {
+    "title": "<strong>pycpp</strong> <small style=\"font-family: serif; color: black; font-size: 0.5em; letter-spacing: 0.1em;\">[11.10.2020]</small>",
+    "link": "pycpp",
+    "style": {
+      "preview": {},
+      "content": {
+        "background": "linear-gradient(white, lightgray)",
+        "color": "purple",
+        "fontSize": "1.5em",
+        "opacity": "1",
+        "border": "3px solid purple",
+        "textShadow": "1px 1px 1px black"
+      }
+    }
+  },
+  {
+    "title": "Сайт недвижимости [15.02.2020]",
+    "link": "house-site",
+    "style": {
+      "preview": {
+        "background": "linear-gradient(-170deg, white 40%, blue)"
+      },
+      "content": {
+        "background": "transparent",
+        "color": "black",
+        "opacity": "0.8"
+      }
+    }
+  },
+  {
+    "title": "Тэппинг Тест [05.03.2020]",
+    "link": "tap-test",
+    "style": {
+      "preview": {
+        "background": "linear-gradient(lightgreen, green)"
+      },
+      "content": {
+        "background": "transparent",
+        "color": "black",
+        "opacity": "1"
+      }
+    }
+  },
+]

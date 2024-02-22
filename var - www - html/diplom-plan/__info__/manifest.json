@@ -1,0 +1,22 @@
+{
+    "title": "План диплома Колледж",
+    "creation_date": "01.05.2020",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": -10,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "border-left": "0.5em solid white",
+            "background": "linear-gradient(#222, black)"
+    	},
+    	"content": {
+            "background": "transparent",
+            "color": "white",
+            "opacity": "1"
+    	}
+    }
+}

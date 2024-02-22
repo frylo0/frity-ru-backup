@@ -1,0 +1,20 @@
+{
+    "title": "Вёрстка <strong style=\"font-size: 2.4em\">CSM</strong>",
+    "creation_date": "27.05.2019",
+    "adaptive": ["pc"],
+
+    "priority": 6.5,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background": "url('$path/icon.png') no-repeat center/cover"
+    	},
+    	"content": {
+            "background-color": "red"
+    	},
+        "meta": "dark"
+    }
+}

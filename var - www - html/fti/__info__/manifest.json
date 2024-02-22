@@ -1,0 +1,20 @@
+{
+    "title": "Распределение групп ПИ ФТИ",
+    "creation_date": "04.09.2020",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 0,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background-image": "url('$path/icon.jpg')"
+    	},
+    	"content": {
+            "background": "#38b2fca6",
+            "color": "white"
+    	}
+    }
+}

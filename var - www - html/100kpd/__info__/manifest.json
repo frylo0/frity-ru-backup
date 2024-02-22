@@ -1,0 +1,22 @@
+{
+    "title": "<strong>100КПД</strong>",
+    "creation_date": "27.05.2020",
+    "adaptive": ["mobile"],
+
+    "priority": 0,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background-image": "url('$path/icon.png')"
+    	},
+    	"content": {
+            "background": "linear-gradient(90deg, yellow, #ffffff50)",
+            "color": "black",
+            "font-size": "1.25em"
+    	},
+        "meta": "dark"
+    }
+}

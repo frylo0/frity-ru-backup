@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>C++ Linker Error Formatter, С++ Форматирование Ошибок Линковщика</title>
+   
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+           integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+           crossorigin="anonymous"></script>
+
+   <style>
+      #textareaError {
+         width: 100%;
+      }
+      #blockResult {
+         font-family: monospace;
+      }
+      .indent {
+         padding-left: 2em;
+         border-left: 1px solid #00000010;
+      }
+      .indent_hidden {
+         overflow: hidden;
+         display: inline-block;
+         height: 0;
+         width: 0;
+         padding-left: 0;
+      }
+      .indent_button {
+         display: inline-flex;
+         justify-content: center;
+         align-items: center;
+         width: 1em;
+         height: 1em;
+         padding: 0.5em;
+         opacity: 0.5;
+         margin-bottom: 0.1em;
+      }
+      .indent_button_opened {
+         background-color: transparent !important;
+         color: #6c757d !important;
+      }
+      .indent_button_opened {
+         box-shadow: none !important;
+      }
+         
+      .indent_inline {
+         margin-left: 1em;
+         display: inline-block;
+      }
+      
+      .indent_root {
+         margin-top: 1em;
+      }
+   </style>
+</head>
+<body class="container-fluid">
+   <h1 class="mt-4">C++ Linker Error Formatter, С++ Форматирование Ошибок Линковщика</h1>
+   <p><a href="#about">What is it? / Что это такое?</a></p>
+
+   <textarea class="mt-4" name="error" id="textareaError" cols="30" rows="10" value="/usr/bin/ld: /media/feodoritiy/HDD/SWAP/ФТИ/1курс/Программирование/server/bin/_game.o: in function `RouteGame::PostHandler(httplib::Request const&, httplib::Response&)::{lambda(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*)#1}::operator()(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*) const::{lambda(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >&)#1}::operator()({lambda(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*)#1}) const':
+game.cpp:(.text+0xd8b): undefined reference to `void jsonForSome<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::function<void (nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >&)>)'
+/usr/bin/ld: game.cpp:(.text+0x110f): undefined reference to `void jsonForSome<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::function<void (nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >&)>)'
+/usr/bin/ld: game.cpp:(.text+0x13d1): undefined reference to `void jsonDeleteSome<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)'
+/usr/bin/ld: game.cpp:(.text+0x178f): undefined reference to `void jsonDeleteSome<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >)'
+/usr/bin/ld: /media/feodoritiy/HDD/SWAP/ФТИ/1курс/Программирование/server/bin/_game.o: in function `RouteGame::PostHandler(httplib::Request const&, httplib::Response&)::{lambda(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*)#1}::operator()(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*) const':
+game.cpp:(.text+0x1f08): undefined reference to `void jsonForSome<unsigned long>(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long, std::function<void (nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >&)>)'"></textarea>
+   <button id="buttonProcess" class="btn btn-primary" style="width: 100%">Process / Обработать</button>
+   <div id="blockResult" style="padding: 1em; margin-top: 1em;"></div>
+   
+   <h2 id=about style="margin-top: 2em;">Shortly about what is this. It is a simple JS formatter for C++ linker errors.</h2>
+   <h3>Why do I need it?</h3>
+   <p>Because linker errors really hard to read!!</p>
+   <h3>Is it free tool?</h3>
+   <p>Yea, it's really free and legally $)</p>
+   <h2 style="margin-top: 1em">Коротко о том что это такое. Это простой JS форматер для ошибок С++ линковщика.</h2>
+   <h3>Зачем оно мне?</h3>
+   <p>Потому что ошибки линкера действительно трудно читать!!</p>
+   <h3>Это бесплатно?</h3>
+   <p>Да блин, это бесплатно и законно $)</p>
+   
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script>
+      textareaError.value = textareaError.getAttribute('value');
+
+      $(buttonProcess).click(e => {
+         const errorString = textareaError.value;
+         const result = processErrorPart(errorString);
+         blockResult.innerHTML = result;
+
+         $('.indent_button').click(e => {
+            if (e.target.textContent == '+') {
+               e.target.textContent = '-';
+               e.target.classList.add('indent_button_opened');
+               e.target.nextElementSibling.classList.remove('indent_hidden');
+            } else {
+               e.target.textContent = '+';
+               e.target.classList.remove('indent_button_opened');
+               e.target.nextElementSibling.classList.add('indent_hidden');
+            }
+         });
+         
+         $('#blockResult > .indent').each((i, el) => {
+            $(el.previousSibling).wrap('<div class="indent_root"></div>');
+         });
+
+         if (!isStartup)
+            blockResult.scrollIntoView({
+               behavior: 'smooth',
+               block: 'center',
+            });
+      });
+
+      function processErrorPart(errorPart) {
+         return errorPart
+            .replace(/\(\)/g, '_______round_______')
+            .replace(/<>/g, '_______triangle_______')
+            .replace(/\>/g, '</div></div>&gt;')
+            .replace(/\<(?!\/)/g, '&lt;<button class="btn btn-secondary indent_button">+</button><div class="indent indent_hidden"><div>')
+            .replace(/\((?!\))/g, '(<button class="btn btn-secondary indent_button">+</button><div class="indent indent_hidden"><div>')
+            .replace(/\)/g, '</div></div>)')
+            // .replace(/:(?= )/g, ':<br>')
+            .replace(/:(?=\s)/g, ':<div class="indent">')
+            .replace(/(\n(((\/|\\)[^\/\\]+?)+:|\w+\.\w+:))/g, '</div></div>$1')
+            .replace(/,/g, ',<br>')
+            .replace(/_______round_______/g, '()')
+            .replace(/_______triangle_______/g, '<>');
+      }
+      // function processErrorPart(errorPart) {
+      //    return errorPart
+      //       // .replace(/\(\)/g, '_______round_______')
+      //       // .replace(/<>/g, '_______triangle_______')
+      //       .replace(/\>/g, '</div></div>&gt;')
+      //       .replace(/\</g, '&lt;<div class="indent indent_hidden"><button class="btn btn-secondary">+</button><div>')
+      //       .replace(/\(/g, '(<div class="indent indent_hidden"><button class="btn btn-secondary">+</button><div>')
+      //       .replace(/\)/g, '</div></div>)')
+      //       // .replace(/:(?= )/g, ':<br>')
+      //       .replace(/:(?= )/g, ':<div class="indent">')
+      //       .replace(/(\n(((\/|\\)[^\/\\]+?)+:|\w+\.\w+:))/g, '</div></div>$1')
+      //       .replace(/\n/g, '<br>')
+      //       .replace(/,/g, ',<br>')
+      //       // .replace(/_______round_______/g, '()')
+      //       // .replace(/_______triangle_______/g, '<>');
+      // }
+
+      let isStartup = true;
+      $(buttonProcess).trigger('click');
+      isStartup = false;
+   </script>
+
+   <p style="margin-top: 3em;">
+      Have found bug? Have ideas? Want to cooperate? <strong>Contact me</strong>: <a href="https://vk.com/fritylo">VK</a>, <a href="mailto: to.fritylo@gmail.com">to.fritylo@gmail.com</a>, <a href="https://instagram.com/fritylo">@fritylo</a><br>
+      Нашли баг? Есть идеи? Хотите сотрудничать? <strong>Свяжитесь со мной</strong>: <a href="https://vk.com/fritylo">VK</a>, <a href="mailto: to.fritylo@gmail.com">to.fritylo@gmail.com</a>, <a href="https://instagram.com/fritylo">@fritylo</a>
+   </p>
+   <!-- Yandex.Metrika informer -->
+   <a href="https://metrika.yandex.ru/stat/?id=76663245&amp;from=informer"
+      target="_blank" rel="nofollow"><img
+           src="https://informer.yandex.ru/informer/76663245/3_0_FFFFFFFF_EFEFEFFF_0_pageviews"
+           style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
+           title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
+           class="ym-advanced-informer" data-cid="76663245" data-lang="ru" /></a>
+   <!-- /Yandex.Metrika informer -->
+   
+   <!-- Yandex.Metrika counter -->
+   <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+         m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+         m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+      })
+         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(76663245, "init", {
+         clickmap: true,
+         trackLinks: true,
+         accurateTrackBounce: true
+      });
+   </script>
+   <noscript>
+      <div><img src="https://mc.yandex.ru/watch/76663245" style="position:absolute; left:-9999px;" alt="" /></div>
+   </noscript>
+   <!-- /Yandex.Metrika counter -->
+   <br><br>
+</body>
+</html>
+

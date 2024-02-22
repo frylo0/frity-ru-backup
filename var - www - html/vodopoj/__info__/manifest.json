@@ -1,0 +1,22 @@
+{
+    "title": "Водопой",
+    "creation_date": "11.01.2021",
+    "adaptive": ["mobile"],
+
+    "priority": 8,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background": "url($path/icon.png) no-repeat center/cover"
+    	},
+    	"content": {
+            "color": "white",
+            "background": "linear-gradient(transparent, #3a8abf)",
+            "font": "bold 1.25em sans-serif"
+    	},
+        "meta": "dark"
+    }
+}

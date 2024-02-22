@@ -1,0 +1,19 @@
+{
+    "title": "PYCPP",
+    "creation_date": "11.10.2020",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 0,
+
+    "is_supported": true,
+    "is_hidden": true,
+
+    "style": {
+    	"preview": {
+    
+    	},
+    	"content": {
+    
+    	}
+    }
+}

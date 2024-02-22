@@ -1,0 +1,19 @@
+{
+    "title": "",
+    "creation_date": "",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 0,
+
+    "is_supported": true,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+    
+    	},
+    	"content": {
+    
+    	}
+    }
+}

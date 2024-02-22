@@ -1,0 +1,24 @@
+{
+    "title": "<strong>Диктор</strong><br>Суфлёр",
+    "creation_date": "26.11.2020",
+    "adaptive": ["pc", "mobile"],
+
+    "priority": 0,
+
+    "is_supported": false,
+    "is_hidden": false,
+
+    "style": {
+    	"preview": {
+            "background": "url('$path/icon.png') no-repeat center/cover" 
+    	},
+    	"content": {
+            "background": "#555555aa",
+            "color": "white",
+            "font-family": "serif",
+            "font-style": "italic",
+            "font-size": "1.25em" 
+    	},
+        "meta": "dark"
+    }
+}
